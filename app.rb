@@ -18,9 +18,8 @@ class App < Sinatra::Base
     number = params[:number]
     @phrase = params[:phrase]
     n = number.to_i
-    n.times do 
-      "#{@phrase}"
-    end
+    n.times.collect {"#{@phrase}"}.inject(:+)
+    
   end
 
   get "/say/:word1/:word2/:word3/:word4/:word5" do
